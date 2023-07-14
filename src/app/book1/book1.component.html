@@ -1,0 +1,71 @@
+<div id="first-div"></div>
+
+<div id="parent-div">
+  <div id="side-nav" style="margin: 5px;">
+    <i class="fa fa-bars">
+      menu
+    </i>
+    <br>
+    <i class="fa fa-inbox"></i>
+    <select name="" id="">
+      <option value="">
+        content management
+      </option>
+    </select>
+    <br>
+    <i class="fa fa-edit">
+      course
+    </i>
+  </div>
+  <div id="main-div">
+    <div class="container1">
+      <span class="fas fa-atom" style="font-size: 20px;"><b>atom</b></span>
+      <a style="float: right;margin-right: 10px;" routerLink="/book2">GoToBook2</a>
+    </div>
+    <div class="div-align col-sm-12">
+      <span style="color: blueviolet;">
+       Books
+      </span>
+      <button class="btn btn-primary" type="submit" style="height:35px;">Create New Book</button>
+
+    </div>
+    <div style="width: 50%;margin-left: 10px;">
+
+      <!-- <input class="fa fa-search"  type="text" name= "search" autocomplete="off" placeholder="search here"
+      [(ngModel)]="searchText" style="height: 40px;"> -->
+      <!-- <input class="" type="text" name="search" autocomplete="off" placeholder="search here"> -->
+      <!-- <form>
+        <input type="search" placeholder="Search..." [(ngModel)]="_searchText" (input)="onSeachChangeText()">
+        <button type="submit">search</button>
+      </form> -->
+      <div>
+        <app-search (searchTextChanged)="onSeachTextEnter($event)"></app-search>
+      </div>
+
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <span style="margin-left: 10px;color: blueviolet;margin-bottom: 10px;margin-top: 10px;">All Books</span>
+        <div class="col-sm-4 standard card" *ngFor="let data of result">
+          <div >
+            <mat-card  >
+              
+              <mat-card-header>
+                <mat-card-content *ngIf="_searchText === '' ||  data.volumeInfo.authors.toString().toLowerCase().includes(_searchText)" >
+                 
+                  <mat-card-title><b>Authors:</b>{{data.volumeInfo.authors}}</mat-card-title>
+                  <mat-card-title><b>Publisher:</b>{{data.volumeInfo.publisher}}</mat-card-title>
+                  <mat-card-title><b>Authors:</b>{{data.volumeInfo.publishedDate}}</mat-card-title>
+    
+                </mat-card-content>
+    
+              </mat-card-header>
+            </mat-card>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

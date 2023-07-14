@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { Book2Component } from './book2.component';
+
+describe('Book2Component', () => {
+  let component: Book2Component;
+  let fixture: ComponentFixture<Book2Component>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [Book2Component]
+    });
+    fixture = TestBed.createComponent(Book2Component);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
